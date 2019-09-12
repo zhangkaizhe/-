@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>VUE_text1</title>
+    <link href="../images/title/Vue.png" rel="icon" type="image/x-ico">
+
+</head>
+<body>
+<p id="app">{{a}}</p>
+<h1 id="app1" style="text-align: center">{{b}}</h1>
+<p>list___________${list}</p>
+<h1 th:text="'Hello, ' + ${list}"></h1>
+<input th:value="${list}"/>
+</body>
+</html>
+<!--
+<script src="../common/js/base/base_js.js" type="text/javascript" charset="utf-8"></script>
+-->
+<script src="../common/js/base_js.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="../common/js/vue.js" type="text/javascript" charset="utf-8"></script>-->
+<script type="text/javascript">
+    // 我们的数据对象
+    var dd = { a: 1,
+    b:"nnnn"
+    }
+    dd.a = "改变aaaa";
+  //  Object.freeze(data);
+    dd.a = "改变ccc";
+    // 该对象被加入到一个 Vue 实例中
+    var vm = new Vue({
+        el:'#app',
+        data: dd
+    });
+    var vm1 = new Vue({
+        el:'#app1',
+        data: dd
+    });
+
+  vm.a = "哈哈哈哈"
+    vm.$watch("a",function(newA,oldB){
+console.log(newA+"----------"+oldB)
+    })
+   vm.$data.a ="111";
+
+
+</script>
